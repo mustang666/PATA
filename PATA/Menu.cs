@@ -167,7 +167,7 @@ namespace PATA
 
         private void richTextBox_teste_TextChanged(object sender, EventArgs e)
         {
-
+            //
         }
     }
 }
