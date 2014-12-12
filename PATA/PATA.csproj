@@ -99,10 +99,6 @@
       <Project>{0084ff60-bb41-4b22-a1b1-c0220990ca49}</Project>
       <Name>ExcelHandler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XmlHandler\XmlHandler.csproj">
-      <Project>{e9b18f30-e11d-4696-8f58-c67be56c5e63}</Project>
-      <Name>XmlHandler</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\forward-icon.png" />

@@ -55,10 +55,6 @@
       <Project>{62aa1cd0-4554-47c2-a464-d058c4fc751d}</Project>
       <Name>Modelo</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XmlHandler\XmlHandler.csproj">
-      <Project>{e9b18f30-e11d-4696-8f58-c67be56c5e63}</Project>
-      <Name>XmlHandler</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
