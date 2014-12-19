@@ -8,7 +8,7 @@ namespace PATA
 {
     public class ExcelHandler
     {
-        public static String readFromExcelFile(string path,string xmlPath)
+        public static Dados readFromExcelFile(string path)
         {
             Sintoma p = null;
             Dados _dados = new Dados();
@@ -47,9 +47,7 @@ namespace PATA
 
             while (linhaP <= excelWorkSheetP.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell, Type.Missing).Row)
             {
-                //while (coluna <= excelWorkSheetP.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell, Type.Missing).Column)
-                //{
-
+               
                 while ((string)(excelWorkSheetP.Cells[linhaP, coluna] as Excel.Range).Value != null)
                 {
                     String name = excelWorkSheetP.Cells[linhaP, coluna].Value;
@@ -92,9 +90,9 @@ namespace PATA
             excelApplication.DisplayAlerts = false;
             excelApplication.Quit();
 
-            XmlHandler.XmlOperations.saveXML(_dados, xmlPath);
+            
 
-            return _dados.ToString();
+            return _dados;
         }
 
 

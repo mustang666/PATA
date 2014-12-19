@@ -55,10 +55,10 @@ namespace PATA
                     }
 
 
-                    foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
-                    {
-                        listBox1.Items.Add(s.ToString());
-                    }
+                    //foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
+                    //{
+                    //    listBox1.Items.Add(s.ToString());
+                    //}
                 
             }
             else
@@ -84,10 +84,10 @@ namespace PATA
                     xmlPath = PATA.Properties.Settings.Default.xmlPath;
                 
 
-                foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
-                {
-                    listBox1.Items.Add(s.ToString());
-                }
+                //foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
+                //{
+                //    listBox1.Items.Add(s.ToString());
+                //}
             }
 
 
@@ -175,17 +175,17 @@ namespace PATA
             {
                 lista.Add(s);
             }
-            List<String> listaFinal = XmlHandler.XmlOperations.procuraSintomas(lista, xmlPath);
+            //List<String> listaFinal = XmlHandler.XmlOperations.procuraSintomas(lista, xmlPath);
 
             String[] linhas;
             int i = 1;
-            foreach (String l in listaFinal)
-            {
+            //foreach (String l in listaFinal)
+            //{
 
-                linhas = l.Split('|');
-                dataGridView1.Rows.Add(i + "º", linhas[1], linhas[2], linhas[3], linhas[0] + "%");
-                i++;
-            }
+            //    linhas = l.Split('|');
+            //    dataGridView1.Rows.Add(i + "º", linhas[1], linhas[2], linhas[3], linhas[0] + "%");
+            //    i++;
+            //}
             //SPLIT para adicionar a GRID
             /*   dataGridView1.Rows.Add("1º", "Coração", "Vazio de Yang","5mc;7c;18v;3f;6f;4vc;20vg;36e", "100%");
             dataGridView1.Rows.Add("2º", "Braço", "Vazio de Yang", "5mc;7c;18v;3f;6f;4vc;20vg;36e", "100%");

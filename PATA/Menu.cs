@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PATA.ServiceReferenceWebservPATA;
 
 
 namespace PATA
@@ -16,6 +17,8 @@ namespace PATA
         private String xlsPath;
         private String xsdPath;
         private Boolean _isValid;
+        private String token;
+        ServiceReferenceWebservPATA.Service1Client servico;
 
         //public static Dados _dados;
         public Menu()
@@ -31,6 +34,12 @@ namespace PATA
             this.StartPosition = FormStartPosition.CenterScreen;
             // Set the Size of the form to Auto Size
             this.AutoSize = true;
+
+
+            token = PATA.Properties.Settings.Default.token.ToString();
+
+            servico = new ServiceReferenceWebservPATA.Service1Client();
+
             if (PATA.Properties.Settings.Default.firstUsage)
             {
                 MessageBox.Show("Bem vindo à Plataforma Auxiliar ao Terapeuta de Acupunctura\nComo é a sua primeira vez aqui, comece por selecionar o caminho do ficheiro Excel a importar e proceda à sua importação! Obrigado.","P.A.T.A.");
@@ -106,7 +115,7 @@ namespace PATA
             try
             {
                 String xmlPath = AppDomain.CurrentDomain.BaseDirectory + "acupuntura.xml";
-                _isValid = XmlHandler.XmlOperations.verificaXSD(xsdPath,xmlPath);
+               // _isValid = XmlHandler.XmlOperations.verificaXSD(xsdPath,xmlPath);
 
             }
             catch (Exception ex)
@@ -129,21 +138,8 @@ namespace PATA
 
         private void btn_excelRead_Click(object sender, EventArgs e)
         {
-            String xmlPath = "";
 
-            SaveFileDialog FD = new SaveFileDialog();
-            FD.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            FD.Title = "Onde Deseja guardar o ficheiro XML?";
-            FD.Filter = "XML files (*.xml)|*.xml";
-
-            if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string fileToOpen = FD.FileName;
-
-                xmlPath = FD.FileName;
-
-            }
-
+            
             String path = txt_excelPath.Text;
 
             if (txt_excelPath.Text == "")
@@ -152,13 +148,54 @@ namespace PATA
             }
             else
             {
-                ExcelHandler.readFromExcelFile(path,xmlPath);
-                PATA.Properties.Settings.Default.xmlPath = xmlPath;
+                
+                Dados d = ExcelHandler.readFromExcelFile(path);
+                DadosWEB dados = dadosToWEB(d);
+                bool a =servico.carregaXml(token, dados);
+
+                MessageBox.Show("rESULTADO" + a.ToString());
+
                 PATA.Properties.Settings.Default.firstUsage = false;
                 PATA.Properties.Settings.Default.Save();
             }
         }
 
+        private static DadosWEB dadosToWEB(Dados dados) 
+        {
+            DadosWEB dadosWEB = new DadosWEB();
+
+            List<DiagnosticoWEB> listaDiagnosticosWEB = new List<DiagnosticoWEB>();
+            List<SintomaWEB> listaSintomasWEB = new List<SintomaWEB>();
+
+            foreach (Sintoma s in dados._listSintomas) 
+            {
+                SintomaWEB sintoma = new SintomaWEB();w
+                sintoma.nome = s.Nome;
+                listaSintomasWEB.Add(sintoma);
+            }
+            dadosWEB.listaSintomas = listaSintomasWEB.ToArray();
+
+
+            foreach(Diagnostico d in dados.ListDiagnosticos)
+            {
+                DiagnosticoWEB diagnostico = new DiagnosticoWEB();
+                diagnostico.nome = d.Nome;
+                diagnostico.orgao = d.Orgao;
+                diagnostico.tratamento = d.Tratamento;
+                List<SintomaWEB> listSintomasWEB = new List<SintomaWEB>();
+                foreach (Sintoma sin in d.ListSintomas)
+                {
+                    SintomaWEB sintomaWebLista = new SintomaWEB();
+                    sintomaWebLista.nome = sin.Nome;
+                    listSintomasWEB.Add(sintomaWebLista);
+                }
+                diagnostico.listaSintomas = listSintomasWEB.ToArray();
+            }
+
+            
+
+            return dadosWEB;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
            //VER ISTO!!!
