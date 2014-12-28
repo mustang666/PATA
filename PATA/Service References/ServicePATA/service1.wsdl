@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCFPata" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_logIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:logIn" />
+  </wsdl:message>
+  <wsdl:message name="IService1_logIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:logInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_logOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:logOut" />
+  </wsdl:message>
+  <wsdl:message name="IService1_logOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:logOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:isAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isLoggedIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:isLoggedIn" />
+  </wsdl:message>
+  <wsdl:message name="IService1_isLoggedIn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isLoggedInResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_carregaXml_InputMessage">
+    <wsdl:part name="parameters" element="tns:carregaXml" />
+  </wsdl:message>
+  <wsdl:message name="IService1_carregaXml_OutputMessage">
+    <wsdl:part name="parameters" element="tns:carregaXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_lerSintomasXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:lerSintomasXML" />
+  </wsdl:message>
+  <wsdl:message name="IService1_lerSintomasXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:lerSintomasXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllPacientes_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPacientes" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllPacientes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPacientesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllPacientesByTerapeuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPacientesByTerapeuta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllPacientesByTerapeuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllPacientesByTerapeutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllEpisodiosByIDPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEpisodiosByIDPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllEpisodiosByIDPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllEpisodiosByIDPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:addPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:editPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addConta_InputMessage">
+    <wsdl:part name="parameters" element="tns:addConta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addConta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addContaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addTerapeuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:addTerapeuta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_addTerapeuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addTerapeutaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="logIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/logIn" message="tns:IService1_logIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/logInResponse" message="tns:IService1_logIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="logOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/logOut" message="tns:IService1_logOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/logOutResponse" message="tns:IService1_logOut_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/isAdmin" message="tns:IService1_isAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/isAdminResponse" message="tns:IService1_isAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isLoggedIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/isLoggedIn" message="tns:IService1_isLoggedIn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/isLoggedInResponse" message="tns:IService1_isLoggedIn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="carregaXml">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/carregaXml" message="tns:IService1_carregaXml_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/carregaXmlResponse" message="tns:IService1_carregaXml_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="lerSintomasXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/lerSintomasXML" message="tns:IService1_lerSintomasXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/lerSintomasXMLResponse" message="tns:IService1_lerSintomasXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllPacientes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllPacientes" message="tns:IService1_getAllPacientes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllPacientesResponse" message="tns:IService1_getAllPacientes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllPacientesByTerapeuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllPacientesByTerapeuta" message="tns:IService1_getAllPacientesByTerapeuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllPacientesByTerapeutaResponse" message="tns:IService1_getAllPacientesByTerapeuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllEpisodiosByIDPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllEpisodiosByIDPaciente" message="tns:IService1_getAllEpisodiosByIDPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllEpisodiosByIDPacienteResponse" message="tns:IService1_getAllEpisodiosByIDPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addPaciente" message="tns:IService1_addPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addPacienteResponse" message="tns:IService1_addPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/editPaciente" message="tns:IService1_editPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/editPacienteResponse" message="tns:IService1_editPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addConta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addConta" message="tns:IService1_addConta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addContaResponse" message="tns:IService1_addConta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addTerapeuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/addTerapeuta" message="tns:IService1_addTerapeuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/addTerapeutaResponse" message="tns:IService1_addTerapeuta_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="logIn">
+      <soap:operation soapAction="http://tempuri.org/IService1/logIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="logOut">
+      <soap:operation soapAction="http://tempuri.org/IService1/logOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isAdmin">
+      <soap:operation soapAction="http://tempuri.org/IService1/isAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isLoggedIn">
+      <soap:operation soapAction="http://tempuri.org/IService1/isLoggedIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="carregaXml">
+      <soap:operation soapAction="http://tempuri.org/IService1/carregaXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lerSintomasXML">
+      <soap:operation soapAction="http://tempuri.org/IService1/lerSintomasXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPacientes">
+      <soap:operation soapAction="http://tempuri.org/IService1/getAllPacientes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllPacientesByTerapeuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/getAllPacientesByTerapeuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllEpisodiosByIDPaciente">
+      <soap:operation soapAction="http://tempuri.org/IService1/getAllEpisodiosByIDPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addPaciente">
+      <soap:operation soapAction="http://tempuri.org/IService1/addPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editPaciente">
+      <soap:operation soapAction="http://tempuri.org/IService1/editPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addConta">
+      <soap:operation soapAction="http://tempuri.org/IService1/addConta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addTerapeuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/addTerapeuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://pata.apphb.com/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

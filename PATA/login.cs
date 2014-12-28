@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PATA.ServiceReferenceWebservPATA;
+using PATA.ServicePATA;
 
 namespace PATA
 {
     public partial class login : Form
     {
 
-        ServiceReferenceWebservPATA.Service1Client servico;
+        ServicePATA.Service1Client servico;
         public login()
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace PATA
                         PATA.Properties.Settings.Default.token = token;
                         PATA.Properties.Settings.Default.Save();
                         Menu fMenu = new Menu();
+                        
                         fMenu.Show();
                         this.Hide();
 

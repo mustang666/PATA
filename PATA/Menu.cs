@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PATA.ServiceReferenceWebservPATA;
+using PATA.ServicePATA;
 
 
 namespace PATA
@@ -18,7 +18,8 @@ namespace PATA
         private String xsdPath;
         private Boolean _isValid;
         private String token;
-        ServiceReferenceWebservPATA.Service1Client servico;
+        
+        ServicePATA.Service1Client servico;
 
         //public static Dados _dados;
         public Menu()
@@ -38,7 +39,8 @@ namespace PATA
 
             token = PATA.Properties.Settings.Default.token.ToString();
 
-            servico = new ServiceReferenceWebservPATA.Service1Client();
+            servico = new ServicePATA.Service1Client();
+            
 
             if (PATA.Properties.Settings.Default.firstUsage)
             {
@@ -164,6 +166,8 @@ namespace PATA
         {
             DadosWEB dadosWEB = new DadosWEB();
 
+            
+
             List<DiagnosticoWEB> listaDiagnosticosWEB = new List<DiagnosticoWEB>();
             List<SintomaWEB> listaSintomasWEB = new List<SintomaWEB>();
 
@@ -190,8 +194,10 @@ namespace PATA
                     listSintomasWEB.Add(sintomaWebLista);
                 }
                 diagnostico.listaSintomas = listSintomasWEB.ToArray();
+                listaDiagnosticosWEB.Add(diagnostico);
             }
-
+            dadosWEB.listaDiagnosticos = listaDiagnosticosWEB.ToArray();
+            
 
 
             return dadosWEB;
@@ -206,5 +212,13 @@ namespace PATA
         {
             //
         }
+
+        private void btn_criar_utilizador_Click(object sender, EventArgs e)
+        {
+            criarUtilizador formCriarUtilizador = new criarUtilizador();
+            formCriarUtilizador.Show();
+        }
+
+   
     }
 }

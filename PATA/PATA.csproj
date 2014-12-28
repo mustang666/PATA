@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="criarUtilizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="criarUtilizador.Designer.cs">
+      <DependentUpon>criarUtilizador.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaDiagnosticos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,11 +94,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReferenceWebservPATA\Reference.cs">
+    <Compile Include="Service References\ServicePATA\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="criarUtilizador.resx">
+      <DependentUpon>criarUtilizador.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListaDiagnosticos.resx">
       <DependentUpon>ListaDiagnosticos.cs</DependentUpon>
     </EmbeddedResource>
@@ -121,17 +130,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\ServiceReferenceWebservPATA\PATA.ServiceReferenceWebservPATA.SintomaWEB.datasource">
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.EpisodioClinicoWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReferenceWebservPATA\Service1.wsdl" />
-    <None Include="Service References\ServiceReferenceWebservPATA\Service1.xsd">
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.PacienteWEB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.SintomaWEB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicePATA\service1.wsdl" />
+    <None Include="Service References\ServicePATA\service2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReferenceWebservPATA\Service11.xsd">
+    <None Include="Service References\ServicePATA\service21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReferenceWebservPATA\Service12.xsd">
+    <None Include="Service References\ServicePATA\WCFPata1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -158,24 +173,6 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReferenceWebservPATA\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceWebservPATA\Service1.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceWebservPATA\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceWebservPATA\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ServiceReferenceWebservPATA\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -191,6 +188,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServicePATA\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePATA\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePATA\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServicePATA\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

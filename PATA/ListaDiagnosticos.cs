@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PATA.ServicePATA;
 
 namespace PATA
 {
     public partial class ListaDiagnosticos : Form
     {
         String xmlPath = "";
+        ServicePATA.Service1Client servico;
         /*
          * 
          * 
@@ -25,6 +27,8 @@ namespace PATA
         public ListaDiagnosticos()
         {
             InitializeComponent();
+            servico = new ServicePATA.Service1Client();
+
             // Define the border style of the form to a dialog box.
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             // Set the MaximizeBox to false to remove the maximize box.
@@ -37,29 +41,35 @@ namespace PATA
             this.AutoSize = true;
             dataGridView1.AllowUserToAddRows = false;
 
+
+            foreach (SintomaWEB s in servico.lerSintomasXML(PATA.Properties.Settings.Default.token).ToList())
+            {
+                listBox1.Items.Add(s.nome.ToString());
+            }
+
             
-                if (PATA.Properties.Settings.Default.xmlPath.Equals("-1"))
+            if (PATA.Properties.Settings.Default.xmlPath.Equals("-1"))
+            {
+                OpenFileDialog FD = new OpenFileDialog();
+                FD.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                FD.Title = "Onde está o ficheiro XML?";
+
+                FD.Filter = "XML files (*.xml)|*.xml";
+
+                if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    OpenFileDialog FD = new OpenFileDialog();
-                    FD.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                    FD.Title = "Onde está o ficheiro XML?";
-
-                    FD.Filter = "XML files (*.xml)|*.xml";
-
-                    if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        string fileToOpen = FD.FileName;
-                        PATA.Properties.Settings.Default.xmlPath = FD.FileName;
-                        PATA.Properties.Settings.Default.Save();
-                        xmlPath = PATA.Properties.Settings.Default.xmlPath;
-                    }
+                    string fileToOpen = FD.FileName;
+                    PATA.Properties.Settings.Default.xmlPath = FD.FileName;
+                    PATA.Properties.Settings.Default.Save();
+                    xmlPath = PATA.Properties.Settings.Default.xmlPath;
+                }
 
 
-                    //foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
-                    //{
-                    //    listBox1.Items.Add(s.ToString());
-                    //}
-                
+                //foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
+                //{
+                //    listBox1.Items.Add(s.ToString());
+                //}
+
             }
             else
             {
@@ -80,14 +90,14 @@ namespace PATA
                         xmlPath = PATA.Properties.Settings.Default.xmlPath;
                     }
                 }
-                    
-                    xmlPath = PATA.Properties.Settings.Default.xmlPath;
-                
 
-                //foreach (String s in XmlHandler.XmlOperations.listaSintomas(xmlPath))
+                xmlPath = PATA.Properties.Settings.Default.xmlPath;
+
+
+                //foreach (String s in )
                 //{
-                //    listBox1.Items.Add(s.ToString());
-                //}
+                //  listBox1.Items.Add(s.ToString());
+                // }
             }
 
 
@@ -193,11 +203,11 @@ namespace PATA
 
         }
 
-        
+
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
-           textBox1.Text = "";
+            textBox1.Text = "";
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -216,10 +226,11 @@ namespace PATA
                     listBox1.TopIndex = position;
                 }
             }
-            else {
+            else
+            {
                 listBox1.TopIndex = 0;
             }
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -245,9 +256,9 @@ namespace PATA
         }
 
 
-       
 
-      
+
+
 
 
 
