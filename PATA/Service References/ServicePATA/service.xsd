@@ -169,7 +169,7 @@
   <xs:element name="addContaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="addContaResult" type="xs:int" />
+        <xs:element minOccurs="0" name="addContaResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

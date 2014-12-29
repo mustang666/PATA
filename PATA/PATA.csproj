@@ -139,14 +139,14 @@
     <None Include="Service References\ServicePATA\PATA.ServicePATA.SintomaWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServicePATA\service1.wsdl" />
-    <None Include="Service References\ServicePATA\service2.xsd">
+    <None Include="Service References\ServicePATA\service.wsdl" />
+    <None Include="Service References\ServicePATA\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicePATA\service21.xsd">
+    <None Include="Service References\ServicePATA\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServicePATA\WCFPata1.xsd">
+    <None Include="Service References\ServicePATA\WCFPata.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
