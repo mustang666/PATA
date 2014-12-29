@@ -237,6 +237,9 @@ namespace PATA.ServicePATA {
         private string nomeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string sexoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string telefoneField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -313,6 +316,19 @@ namespace PATA.ServicePATA {
                 if ((object.ReferenceEquals(this.nomeField, value) != true)) {
                     this.nomeField = value;
                     this.RaisePropertyChanged("nome");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string sexo {
+            get {
+                return this.sexoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sexoField, value) != true)) {
+                    this.sexoField = value;
+                    this.RaisePropertyChanged("sexo");
                 }
             }
         }
@@ -448,6 +464,83 @@ namespace PATA.ServicePATA {
                 if ((object.ReferenceEquals(this.listaSintomasField, value) != true)) {
                     this.listaSintomasField = value;
                     this.RaisePropertyChanged("listaSintomas");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SistemaPericialWEB", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
+    [System.SerializableAttribute()]
+    public partial class SistemaPericialWEB : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string diagnosticoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal scoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tratamentoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string diagnostico {
+            get {
+                return this.diagnosticoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.diagnosticoField, value) != true)) {
+                    this.diagnosticoField = value;
+                    this.RaisePropertyChanged("diagnostico");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal score {
+            get {
+                return this.scoreField;
+            }
+            set {
+                if ((this.scoreField.Equals(value) != true)) {
+                    this.scoreField = value;
+                    this.RaisePropertyChanged("score");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string tratamento {
+            get {
+                return this.tratamentoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tratamentoField, value) != true)) {
+                    this.tratamentoField = value;
+                    this.RaisePropertyChanged("tratamento");
                 }
             }
         }
@@ -738,6 +831,12 @@ namespace PATA.ServicePATA {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllEpisodiosByIDPaciente", ReplyAction="http://tempuri.org/IService1/getAllEpisodiosByIDPacienteResponse")]
         System.Threading.Tasks.Task<PATA.ServicePATA.EpisodioClinicoWEB[]> getAllEpisodiosByIDPacienteAsync(string token, int idPaciente);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getListaSistemaPericial", ReplyAction="http://tempuri.org/IService1/getListaSistemaPericialResponse")]
+        PATA.ServicePATA.SistemaPericialWEB[] getListaSistemaPericial(string token, PATA.ServicePATA.SintomaWEB[] lista);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getListaSistemaPericial", ReplyAction="http://tempuri.org/IService1/getListaSistemaPericialResponse")]
+        System.Threading.Tasks.Task<PATA.ServicePATA.SistemaPericialWEB[]> getListaSistemaPericialAsync(string token, PATA.ServicePATA.SintomaWEB[] lista);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addPaciente", ReplyAction="http://tempuri.org/IService1/addPacienteResponse")]
         bool addPaciente(string token, PATA.ServicePATA.PacienteWEB paciente);
         
@@ -761,6 +860,12 @@ namespace PATA.ServicePATA {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addTerapeuta", ReplyAction="http://tempuri.org/IService1/addTerapeutaResponse")]
         System.Threading.Tasks.Task<string> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addEpisodioClinico", ReplyAction="http://tempuri.org/IService1/addEpisodioClinicoResponse")]
+        bool addEpisodioClinico(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addEpisodioClinico", ReplyAction="http://tempuri.org/IService1/addEpisodioClinicoResponse")]
+        System.Threading.Tasks.Task<bool> addEpisodioClinicoAsync(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -862,6 +967,14 @@ namespace PATA.ServicePATA {
             return base.Channel.getAllEpisodiosByIDPacienteAsync(token, idPaciente);
         }
         
+        public PATA.ServicePATA.SistemaPericialWEB[] getListaSistemaPericial(string token, PATA.ServicePATA.SintomaWEB[] lista) {
+            return base.Channel.getListaSistemaPericial(token, lista);
+        }
+        
+        public System.Threading.Tasks.Task<PATA.ServicePATA.SistemaPericialWEB[]> getListaSistemaPericialAsync(string token, PATA.ServicePATA.SintomaWEB[] lista) {
+            return base.Channel.getListaSistemaPericialAsync(token, lista);
+        }
+        
         public bool addPaciente(string token, PATA.ServicePATA.PacienteWEB paciente) {
             return base.Channel.addPaciente(token, paciente);
         }
@@ -892,6 +1005,14 @@ namespace PATA.ServicePATA {
         
         public System.Threading.Tasks.Task<string> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta) {
             return base.Channel.addTerapeutaAsync(token, terapeuta);
+        }
+        
+        public bool addEpisodioClinico(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio) {
+            return base.Channel.addEpisodioClinico(token, episodio);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addEpisodioClinicoAsync(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio) {
+            return base.Channel.addEpisodioClinicoAsync(token, episodio);
         }
     }
 }

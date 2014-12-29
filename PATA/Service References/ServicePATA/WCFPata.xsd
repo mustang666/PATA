@@ -47,6 +47,7 @@
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="morada" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sexo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="telefone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="terapeutaID" type="xs:int" />
     </xs:sequence>
@@ -68,6 +69,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EpisodioClinicoWEB" nillable="true" type="tns:EpisodioClinicoWEB" />
+  <xs:complexType name="ArrayOfSistemaPericialWEB">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SistemaPericialWEB" nillable="true" type="tns:SistemaPericialWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSistemaPericialWEB" nillable="true" type="tns:ArrayOfSistemaPericialWEB" />
+  <xs:complexType name="SistemaPericialWEB">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="diagnostico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="score" type="xs:decimal" />
+      <xs:element minOccurs="0" name="tratamento" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SistemaPericialWEB" nillable="true" type="tns:SistemaPericialWEB" />
   <xs:complexType name="ContaWEB">
     <xs:sequence>
       <xs:element minOccurs="0" name="id" type="xs:int" />

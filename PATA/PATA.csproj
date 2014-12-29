@@ -139,6 +139,9 @@
     <None Include="Service References\ServicePATA\PATA.ServicePATA.SintomaWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.SistemaPericialWEB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServicePATA\service.wsdl" />
     <None Include="Service References\ServicePATA\service.xsd">
       <SubType>Designer</SubType>

@@ -128,11 +128,26 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getListaSistemaPericial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="lista" nillable="true" type="q6:ArrayOfSintomaWEB" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getListaSistemaPericialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="getListaSistemaPericialResult" nillable="true" type="q7:ArrayOfSistemaPericialWEB" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="addPaciente">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="paciente" nillable="true" type="q6:PacienteWEB" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="paciente" nillable="true" type="q8:PacienteWEB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -147,7 +162,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="paciente" nillable="true" type="q7:PacienteWEB" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="paciente" nillable="true" type="q9:PacienteWEB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -162,7 +177,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="conta" nillable="true" type="q8:ContaWEB" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="conta" nillable="true" type="q10:ContaWEB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -177,7 +192,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="terapeuta" nillable="true" type="q9:TerapeutaWEB" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="terapeuta" nillable="true" type="q11:TerapeutaWEB" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,6 +200,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="addTerapeutaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEpisodioClinico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFPata" minOccurs="0" name="episodio" nillable="true" type="q12:EpisodioClinicoWEB" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addEpisodioClinicoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addEpisodioClinicoResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

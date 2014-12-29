@@ -155,7 +155,7 @@ namespace PATA
                 DadosWEB dados = dadosToWEB(d);
                 bool a = servico.carregaXml(token, dados);
 
-                MessageBox.Show("rESULTADO" + a.ToString());
+                MessageBox.Show("Resultado" + a.ToString());
 
                 PATA.Properties.Settings.Default.firstUsage = false;
                 PATA.Properties.Settings.Default.Save();
