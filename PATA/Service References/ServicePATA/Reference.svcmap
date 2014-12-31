@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2efaf614-78f6-4ce7-8fcc-8b99accc5172" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="92b626af-9076-42aa-9bd0-f57e4ed36075" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3df366cf-1f58-4e10-9348-74127b3769fa" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
-    <MetadataFile FileName="WCFPata.xsd" MetadataType="Schema" ID="86b2e289-001c-4b5d-9fd8-f3d04d89a9d6" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="e6751c2c-698f-4b51-b1af-2a3237aac92d" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="ef651f81-9e7a-4bb3-9fe5-f2c96a0d506f" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="c462f97c-73ff-47ee-9a97-2e2a31902919" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
+    <MetadataFile FileName="WCFPata.xsd" MetadataType="Schema" ID="ab4409d0-ba68-410f-9d41-8325f58430b1" SourceId="1" SourceUrl="http://pata.apphb.com/service1.svc/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

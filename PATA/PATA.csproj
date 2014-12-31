@@ -74,6 +74,12 @@
     <Compile Include="criarUtilizador.Designer.cs">
       <DependentUpon>criarUtilizador.cs</DependentUpon>
     </Compile>
+    <Compile Include="editarUtilizador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editarUtilizador.Designer.cs">
+      <DependentUpon>editarUtilizador.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListaDiagnosticos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="criarUtilizador.resx">
       <DependentUpon>criarUtilizador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editarUtilizador.resx">
+      <DependentUpon>editarUtilizador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListaDiagnosticos.resx">
       <DependentUpon>ListaDiagnosticos.cs</DependentUpon>
@@ -130,6 +139,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.ContaWEB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServicePATA\PATA.ServicePATA.EpisodioClinicoWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -140,6 +152,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicePATA\PATA.ServicePATA.SistemaPericialWEB.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.TerapeutaWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicePATA\service.wsdl" />

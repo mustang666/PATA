@@ -42,8 +42,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.group_terapeuta = new System.Windows.Forms.GroupBox();
-            this.group_utilizador = new System.Windows.Forms.GroupBox();
             this.txt_telefoneTerapeuta = new System.Windows.Forms.TextBox();
+            this.group_utilizador = new System.Windows.Forms.GroupBox();
             this.group_terapeuta.SuspendLayout();
             this.group_utilizador.SuspendLayout();
             this.SuspendLayout();
@@ -175,6 +175,13 @@
             this.group_terapeuta.TabStop = false;
             this.group_terapeuta.Text = "Terapeuta";
             // 
+            // txt_telefoneTerapeuta
+            // 
+            this.txt_telefoneTerapeuta.Location = new System.Drawing.Point(88, 128);
+            this.txt_telefoneTerapeuta.Name = "txt_telefoneTerapeuta";
+            this.txt_telefoneTerapeuta.Size = new System.Drawing.Size(269, 22);
+            this.txt_telefoneTerapeuta.TabIndex = 9;
+            // 
             // group_utilizador
             // 
             this.group_utilizador.Controls.Add(this.label1);
@@ -189,18 +196,11 @@
             this.group_utilizador.TabStop = false;
             this.group_utilizador.Text = "Utilizador";
             // 
-            // txt_telefoneTerapeuta
-            // 
-            this.txt_telefoneTerapeuta.Location = new System.Drawing.Point(88, 128);
-            this.txt_telefoneTerapeuta.Name = "txt_telefoneTerapeuta";
-            this.txt_telefoneTerapeuta.Size = new System.Drawing.Size(269, 22);
-            this.txt_telefoneTerapeuta.TabIndex = 9;
-            // 
             // criarUtilizador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 564);
+            this.ClientSize = new System.Drawing.Size(711, 559);
             this.Controls.Add(this.group_utilizador);
             this.Controls.Add(this.btn_guardar_uilizador);
             this.Controls.Add(this.group_terapeuta);

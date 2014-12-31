@@ -49,11 +49,29 @@
   <wsdl:message name="IService1_getAllPacientes_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllPacientesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_getAllContas_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllContas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllContas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllContasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllTerapeutas_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTerapeutas" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getAllTerapeutas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllTerapeutasResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_getAllPacientesByTerapeuta_InputMessage">
     <wsdl:part name="parameters" element="tns:getAllPacientesByTerapeuta" />
   </wsdl:message>
   <wsdl:message name="IService1_getAllPacientesByTerapeuta_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllPacientesByTerapeutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getNomeTerapeuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNomeTerapeuta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_getNomeTerapeuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNomeTerapeutaResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_getAllEpisodiosByIDPaciente_InputMessage">
     <wsdl:part name="parameters" element="tns:getAllEpisodiosByIDPaciente" />
@@ -79,6 +97,18 @@
   <wsdl:message name="IService1_editPaciente_OutputMessage">
     <wsdl:part name="parameters" element="tns:editPacienteResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_editTerapeuta_InputMessage">
+    <wsdl:part name="parameters" element="tns:editTerapeuta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editTerapeuta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editTerapeutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editConta_InputMessage">
+    <wsdl:part name="parameters" element="tns:editConta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_editConta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:editContaResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_addConta_InputMessage">
     <wsdl:part name="parameters" element="tns:addConta" />
   </wsdl:message>
@@ -96,6 +126,18 @@
   </wsdl:message>
   <wsdl:message name="IService1_addEpisodioClinico_OutputMessage">
     <wsdl:part name="parameters" element="tns:addEpisodioClinicoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_removeTerapeutaFromPaciente_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeTerapeutaFromPaciente" />
+  </wsdl:message>
+  <wsdl:message name="IService1_removeTerapeutaFromPaciente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeTerapeutaFromPacienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_removeConta_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeConta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_removeConta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeContaResponse" />
   </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="logIn">
@@ -126,9 +168,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllPacientes" message="tns:IService1_getAllPacientes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllPacientesResponse" message="tns:IService1_getAllPacientes_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getAllContas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllContas" message="tns:IService1_getAllContas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllContasResponse" message="tns:IService1_getAllContas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllTerapeutas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllTerapeutas" message="tns:IService1_getAllTerapeutas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllTerapeutasResponse" message="tns:IService1_getAllTerapeutas_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getAllPacientesByTerapeuta">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllPacientesByTerapeuta" message="tns:IService1_getAllPacientesByTerapeuta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/getAllPacientesByTerapeutaResponse" message="tns:IService1_getAllPacientesByTerapeuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNomeTerapeuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/getNomeTerapeuta" message="tns:IService1_getNomeTerapeuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/getNomeTerapeutaResponse" message="tns:IService1_getNomeTerapeuta_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getAllEpisodiosByIDPaciente">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/getAllEpisodiosByIDPaciente" message="tns:IService1_getAllEpisodiosByIDPaciente_InputMessage" />
@@ -146,6 +200,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/editPaciente" message="tns:IService1_editPaciente_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/editPacienteResponse" message="tns:IService1_editPaciente_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="editTerapeuta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/editTerapeuta" message="tns:IService1_editTerapeuta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/editTerapeutaResponse" message="tns:IService1_editTerapeuta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="editConta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/editConta" message="tns:IService1_editConta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/editContaResponse" message="tns:IService1_editConta_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="addConta">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/addConta" message="tns:IService1_addConta_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/addContaResponse" message="tns:IService1_addConta_OutputMessage" />
@@ -157,6 +219,14 @@
     <wsdl:operation name="addEpisodioClinico">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/addEpisodioClinico" message="tns:IService1_addEpisodioClinico_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/addEpisodioClinicoResponse" message="tns:IService1_addEpisodioClinico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeTerapeutaFromPaciente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/removeTerapeutaFromPaciente" message="tns:IService1_removeTerapeutaFromPaciente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/removeTerapeutaFromPacienteResponse" message="tns:IService1_removeTerapeutaFromPaciente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeConta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/removeConta" message="tns:IService1_removeConta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/removeContaResponse" message="tns:IService1_removeConta_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -224,8 +294,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getAllContas">
+      <soap:operation soapAction="http://tempuri.org/IService1/getAllContas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllTerapeutas">
+      <soap:operation soapAction="http://tempuri.org/IService1/getAllTerapeutas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="getAllPacientesByTerapeuta">
       <soap:operation soapAction="http://tempuri.org/IService1/getAllPacientesByTerapeuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNomeTerapeuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/getNomeTerapeuta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -269,6 +366,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="editTerapeuta">
+      <soap:operation soapAction="http://tempuri.org/IService1/editTerapeuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="editConta">
+      <soap:operation soapAction="http://tempuri.org/IService1/editConta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="addConta">
       <soap:operation soapAction="http://tempuri.org/IService1/addConta" style="document" />
       <wsdl:input>
@@ -289,6 +404,24 @@
     </wsdl:operation>
     <wsdl:operation name="addEpisodioClinico">
       <soap:operation soapAction="http://tempuri.org/IService1/addEpisodioClinico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeTerapeutaFromPaciente">
+      <soap:operation soapAction="http://tempuri.org/IService1/removeTerapeutaFromPaciente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeConta">
+      <soap:operation soapAction="http://tempuri.org/IService1/removeConta" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

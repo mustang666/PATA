@@ -29,7 +29,6 @@ namespace PATA
             c = new ContaWEB();
             token = PATA.Properties.Settings.Default.token;
 
-
         }
 
         private void btn_guardar_uilizador_Click(object sender, EventArgs e)
@@ -68,46 +67,48 @@ namespace PATA
                          MessageBox.Show("Conta de Administrador adicionada com sucesso!");
 
                 }
-                //else
-                //{
-                //    isAdmin = false;
-                //    c.isAdmin = isAdmin;
-                //    idConta= servico.addConta(token, c);
-
-                //    if (!String.IsNullOrEmpty(txt_cc_utilizador.Text) && !String.IsNullOrEmpty(txt_nome_utilizador.Text) && !String.IsNullOrEmpty(txt_telefoneTerapeuta.Text) && dt_data_nasc_utilizador.Value > DateTime.Today ? false : true)
-                //    {
-                //        nomeTerapeuta = txt_nome_utilizador.Text;
-                //        ccTerapeuta = txt_cc_utilizador.Text;
-                //        telefoneTerapeuta = txt_telefoneTerapeuta.Text;
-                //        dataNascTerapeuta = dt_data_nasc_utilizador.Value;
-
-                //        string s =dt_data_nasc_utilizador.Value.Date.Day+"/"+dt_data_nasc_utilizador.Value.Month+"/"+dt_data_nasc_utilizador.Value.Year;
+                else
+                {
+                    isAdmin = false;
+                    c.isAdmin = isAdmin;
+                    bool  resultado = servico.addConta(token, c);
 
 
-                //        TerapeutaWEB t = new TerapeutaWEB();
-                //        t.contaID = idConta;
-                //        t.nome = nomeTerapeuta;
-                //        t.cc = ccTerapeuta;
-                //        t.dataNasc = s;
-                //        t.telefone = telefoneTerapeuta;
-                //        string resultado=servico.addTerapeuta(token, t);
-                //        if (resultado.ToLower().Equals("ok"))
-                //            MessageBox.Show("NICE");
-                //        //if (resultado && idConta > -1)
-                //        //{
-                //        //    MessageBox.Show("Terapeuta adicionado com sucesso!");
-                //        //}
-                //        //else {
-                //        //    MessageBox.Show("Não foi possivel adicionar o terapeuta!");
-                //        //}
-                        
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Alguns dos campos de dados por preencher!");
-                //    }
 
-                //}
+                    if (!String.IsNullOrEmpty(txt_cc_utilizador.Text) && !String.IsNullOrEmpty(txt_nome_utilizador.Text) && !String.IsNullOrEmpty(txt_telefoneTerapeuta.Text) && dt_data_nasc_utilizador.Value > DateTime.Today ? false : true)
+                    {
+                        nomeTerapeuta = txt_nome_utilizador.Text;
+                        ccTerapeuta = txt_cc_utilizador.Text;
+                        telefoneTerapeuta = txt_telefoneTerapeuta.Text;
+                        dataNascTerapeuta = dt_data_nasc_utilizador.Value;
+
+                        string s = dt_data_nasc_utilizador.Value.Date.Day + "/" + dt_data_nasc_utilizador.Value.Month + "/" + dt_data_nasc_utilizador.Value.Year;
+
+
+                        TerapeutaWEB t = new TerapeutaWEB();
+                        t.contaID = idConta;
+                        t.nome = nomeTerapeuta;
+                        t.cc = ccTerapeuta;
+                        t.dataNasc = s;
+                        t.telefone = telefoneTerapeuta;
+                        string res = servico.addTerapeuta(token, t);
+                        if (res.ToLower().Equals("ok"))
+                            MessageBox.Show("NICE");
+                        //if (resultado && idConta > -1)
+                        //{
+                        //    MessageBox.Show("Terapeuta adicionado com sucesso!");
+                        //}
+                        //else {
+                        //    MessageBox.Show("Não foi possivel adicionar o terapeuta!");
+                        //}
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Alguns dos campos de dados por preencher!");
+                    }
+
+                }
             }
             else
             {
