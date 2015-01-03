@@ -30,16 +30,29 @@ namespace PATA
                 try
                 {
                     String token = servico.logIn(txt_username.Text, txt_password.Text);
-
+                    
                     if (token != "")
                     {
-                        PATA.Properties.Settings.Default.token = token;
-                        PATA.Properties.Settings.Default.Save();
-                        Menu fMenu = new Menu();
-                        
-                        fMenu.Show();
-                        this.Hide();
+                        bool res = servico.isAdmin(token);
 
+                        if (res)
+                        {
+                            PATA.Properties.Settings.Default.token = token;
+                            PATA.Properties.Settings.Default.Save();
+                            Menu fMenu = new Menu(this);
+
+                            fMenu.Show();
+                            txt_password.Text = "";
+                            txt_username.Text = "";
+                            this.Hide();
+                        }
+                        else {
+                            DialogResult result1 = MessageBox.Show("Aplicação só disponível para administradores!",
+           "Aviso",
+           MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                       
+                       
 
                     }
                 }
@@ -74,6 +87,23 @@ namespace PATA
             }
             MessageBox.Show(message);
             return false;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // Confirm user wants to close
+            switch (MessageBox.Show(this,"Tem a certeza que pretende sair?\nObrigado, João Nicolau & Nelson", "Sair", MessageBoxButtons.YesNo))
+            {
+                case DialogResult.No:
+                    e.Cancel = true;
+                    break;
+                default:
+                    break;
+            }
         }
 
 

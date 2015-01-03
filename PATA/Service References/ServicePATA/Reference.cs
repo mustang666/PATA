@@ -886,10 +886,10 @@ namespace PATA.ServicePATA {
         System.Threading.Tasks.Task<bool> addContaAsync(string token, PATA.ServicePATA.ContaWEB conta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addTerapeuta", ReplyAction="http://tempuri.org/IService1/addTerapeutaResponse")]
-        string addTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta);
+        bool addTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addTerapeuta", ReplyAction="http://tempuri.org/IService1/addTerapeutaResponse")]
-        System.Threading.Tasks.Task<string> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta);
+        System.Threading.Tasks.Task<bool> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addEpisodioClinico", ReplyAction="http://tempuri.org/IService1/addEpisodioClinicoResponse")]
         bool addEpisodioClinico(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio);
@@ -1081,12 +1081,12 @@ namespace PATA.ServicePATA {
             return base.Channel.addContaAsync(token, conta);
         }
         
-        public string addTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta) {
-            return base.Channel.addTerapeuta(token, terapeuta);
+        public bool addTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta) {
+            return base.Channel.addTerapeuta(token, terapeuta, conta);
         }
         
-        public System.Threading.Tasks.Task<string> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta) {
-            return base.Channel.addTerapeutaAsync(token, terapeuta);
+        public System.Threading.Tasks.Task<bool> addTerapeutaAsync(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta) {
+            return base.Channel.addTerapeutaAsync(token, terapeuta, conta);
         }
         
         public bool addEpisodioClinico(string token, PATA.ServicePATA.EpisodioClinicoWEB episodio) {

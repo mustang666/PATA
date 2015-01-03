@@ -25,15 +25,20 @@ namespace PATA
         private List<ContaWEB> listaContas;
         private ContaWEB c;
         private bool isEditAdmin;
+        private login login;
+        private bool isLogout;
 
 
 
         ServicePATA.Service1Client servico;
+        private bool isNovoTerapeuta;
+        private bool isEditarTerapeuta;
+
 
 
 
         //public static Dados _dados;
-        public Menu()
+        public Menu(login login)
         {
             InitializeComponent();
             // Define the border style of the form to a dialog box.
@@ -46,6 +51,8 @@ namespace PATA
             this.StartPosition = FormStartPosition.CenterScreen;
             // Set the Size of the form to Auto Size
             this.AutoSize = true;
+
+            this.login = login;
 
 
 
@@ -60,8 +67,12 @@ namespace PATA
 
             inicializarListViewAdmin();
             preencheAdmins();
-
-
+            inicializarListViewTerapeuta();
+            preencheTerapeutas();
+            inicializarListViewPaciente();
+            preenchePacientes();
+            inicializarListViewAssociarTerapeuta();
+            preencheAssociarTerapeutas();
 
 
             if (PATA.Properties.Settings.Default.firstUsage)
@@ -69,31 +80,106 @@ namespace PATA
                 MessageBox.Show("Bem vindo à Plataforma Auxiliar ao Terapeuta de Acupunctura\nComo é a sua primeira vez aqui, comece por selecionar o caminho do ficheiro Excel a importar e proceda à sua importação! Obrigado.", "P.A.T.A.");
             }
 
-            unblockButtons();
-
-
-
+            unblockButtonsAdmin();
+            unblockButtonsTerapeuta();
 
         }
+
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            base.OnFormClosing(e);
-
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
-
-            // Confirm user wants to close
-            switch (MessageBox.Show(this, "João Nicolau & Nelson \n Are you sure you want to close?", "Obrigado!! Quantified Self", MessageBoxButtons.YesNo))
+            if (!isLogout)
             {
-                case DialogResult.No:
-                    e.Cancel = true;
-                    break;
-                default:
-                    break;
+                base.OnFormClosing(e);
+
+                if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+                // Confirm user wants to close
+                switch (MessageBox.Show(this, "Tem a certeza que pretende sair?\n A sua sessão será terminada.\nObrigado, João Nicolau & Nelson", "Sair", MessageBoxButtons.YesNo))
+                {
+                    case DialogResult.Yes:
+                        servico.logOut(token);
+                        isLogout = true;
+                        login.Show();
+                        this.Close();
+                        PATA.Properties.Settings.Default.token = "";
+                        break;
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            DialogResult result1 = MessageBox.Show("Pretende terminar a sua sessão?",
+       "Aviso",
+       MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            if (result1 == DialogResult.OK)
+            {
+                servico.logOut(token);
+                PATA.Properties.Settings.Default.token = "";
+                login.Show();
+                isLogout = true;
+                this.Close();
+
+            }
 
 
+        }
+        //--------------------HANDLERS EXCEL------------------------------------------------------------
+        private void btn_procurarExcel_Click_1(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == MessageBox.Show("Vamos escolher o ficheiro *.xls a migrar:"))
+            {
+                OpenFileDialog FD = new OpenFileDialog();
+                FD.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                FD.Title = "Onde está o ficheiro de Excel?";
+
+                FD.Filter = "Xls files (*.xls)|*.xls";
+
+                if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string fileToOpen = FD.FileName;
+
+                    xlsPath = FD.FileName;
+                    txt_excelPath.Text = xlsPath;
+                    txt_excelPath.ReadOnly = true;
+
+                }
+
+            }
+            else
+            {
+                //do stuff if No
+            }
+        }
+
+        private void btn_excelRead_Click_1(object sender, EventArgs e)
+        {
+            String path = txt_excelPath.Text;
+
+            if (txt_excelPath.Text == "")
+            {
+                MessageBox.Show("Deve selecionar um caminho para o ficheiro *.xls a importar");
+            }
+            else
+            {
+
+                Dados d = ExcelHandler.readFromExcelFile(path);
+                DadosWEB dados = dadosToWEB(d);
+                bool a = servico.carregaXml(token, dados);
+
+                MessageBox.Show("Resultado" + a.ToString());
+
+                PATA.Properties.Settings.Default.firstUsage = false;
+                PATA.Properties.Settings.Default.Save();
+            }
+        }
 
 
         private void btn_validarDados_Click(object sender, EventArgs e)
@@ -185,30 +271,59 @@ namespace PATA
             //_dados.saveXML();
         }
 
-        private void richTextBox_teste_TextChanged(object sender, EventArgs e)
-        {
-            //
-        }
 
-        private void btn_criar_utilizador_Click(object sender, EventArgs e)
-        {
-            criarUtilizador formCriarUtilizador = new criarUtilizador();
-            formCriarUtilizador.Show();
-        }
-
-        public void limparCampos()
-        {
-            txt_username_admin.Text = "";
-            txt_password_admin.Text = "";
-        }
-
+        //////////////////////////////////////////ADMINISTRADORES////////////////////////////////////////////////
 
         private void btn_novo_admin_Click(object sender, EventArgs e)
         {
-            limparCampos();
-            blockButtons();
+            limparCamposAdmin();
+            blockButtonsAdmin();
             isNovoAdmin = true;
             group_admin.Text = "Novo Administrador";
+        }
+
+        private void btn_editar_admin_Click(object sender, EventArgs e)
+        {
+            if (numItemsListAdmin() > 0)
+            {
+                if (c != null)
+                {
+                    blockButtonsAdmin();
+                    isEditAdmin = true;
+                    group_admin.Text = "Novo Administrador";
+
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um Administrador da lista!",
+         "Aviso",
+         MessageBoxButtons.OK,
+         MessageBoxIcon.Exclamation);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Não existem administradores para editar!",
+             "Important Note",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        private void btn_remover_admin_Click(object sender, EventArgs e)
+        {
+            if (c != null)
+            {
+                listaContas.Remove(c);
+                string msg = servico.removeConta(token, c.id);
+                limparCamposAdmin();
+                preencheAdmins();
+
+                MessageBox.Show(msg, "Remover Administrador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
 
         private void btn_guardar_admin_Click(object sender, EventArgs e)
@@ -237,7 +352,7 @@ namespace PATA
                     }
                     else
                     {
-                        MessageBox.Show("Conta de Administrador adicionada com sucesso!");
+                        MessageBox.Show("Não foi possível adicionar a conta de administrador!");
                     }
 
                 }
@@ -262,7 +377,7 @@ namespace PATA
                     else
                     {
                         limparFormularioAdmin();
-                        unblockButtons();
+                        unblockButtonsAdmin();
                         MessageBox.Show("Não foi possível alterar a conta de administrador!");
                     }
                 }
@@ -276,61 +391,8 @@ namespace PATA
 
         private void limparFormularioAdmin()
         {
-            unblockButtons();
-            limparCampos();
-        }
-
-        public void blockButtons()
-        {
-            group_admin.Enabled = true;
-            btn_editar_admin.Enabled = false;
-            btn_novo_admin.Enabled = false;
-            btn_remover_admin.Enabled = false;
-            listViewAdmin.Enabled = false;
-        }
-
-        public void unblockButtons()
-        {
-            group_admin.Enabled = false;
-            btn_editar_admin.Enabled = true;
-            btn_novo_admin.Enabled = true;
-            btn_remover_admin.Enabled = true;
-            listViewAdmin.Enabled = true;
-        }
-
-        private void btn_editar_admin_Click(object sender, EventArgs e)
-        {
-            if (numItemsListAdmin() > 0)
-            {
-                if (c != null)
-                {
-                    blockButtons();
-                    isEditAdmin = true;
-                    group_admin.Text = "Novo Administrador";
-
-                }
-                else
-                {
-                    MessageBox.Show("Selecione um Administrador da lista!",
-         "Aviso",
-         MessageBoxButtons.OK,
-         MessageBoxIcon.Exclamation);
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Não existem administradores para editar!",
-             "Important Note",
-             MessageBoxButtons.OK,
-             MessageBoxIcon.Exclamation,
-             MessageBoxDefaultButton.Button1);
-            }
-
-
-
-
-
+            unblockButtonsAdmin();
+            limparCamposAdmin();
         }
 
         public int numItemsListAdmin()
@@ -355,26 +417,6 @@ namespace PATA
                 listViewAdmin.Items.Add(itemListView);
             }
         }
-        public void preencheTerapeutas()
-        {
-            listaTerapeutas = servico.getAllTerapeutas(token).ToList();
-        }
-        public void preenchePacientes()
-        {
-            listaPacientes = servico.getAllPacientes(token).ToList();
-
-        }
-
-        public void inicializarListViewAdmin()
-        {
-            listViewAdmin.GridLines = true;
-            listViewAdmin.Sorting = SortOrder.Ascending;
-            listViewAdmin.View = View.Details;
-            listViewAdmin.FullRowSelect = true;
-            listViewAdmin.LabelEdit = false;
-            listViewAdmin.Columns.Add("ID", 50, HorizontalAlignment.Center);
-            listViewAdmin.Columns.Add("Administrador", 252, HorizontalAlignment.Center);
-        }
 
         private void listViewAdmin_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -395,6 +437,17 @@ namespace PATA
             }
         }
 
+        public void inicializarListViewAdmin()
+        {
+            listViewAdmin.GridLines = true;
+            listViewAdmin.Sorting = SortOrder.Ascending;
+            listViewAdmin.View = View.Details;
+            listViewAdmin.FullRowSelect = true;
+            listViewAdmin.LabelEdit = false;
+            listViewAdmin.Columns.Add("ID", 50, HorizontalAlignment.Center);
+            listViewAdmin.Columns.Add("Administrador", 252, HorizontalAlignment.Center);
+        }
+
         public ContaWEB devolveConta(int idConta)
         {
             if (listaContas.Count > 0)
@@ -411,68 +464,268 @@ namespace PATA
 
         }
 
-        private void btn_procurarExcel_Click_1(object sender, EventArgs e)
+
+        public void blockButtonsAdmin()
         {
-            if (DialogResult.OK == MessageBox.Show("Vamos escolher o ficheiro *.xls a migrar:"))
+            group_admin.Enabled = true;
+            btn_editar_admin.Enabled = false;
+            btn_novo_admin.Enabled = false;
+            btn_remover_admin.Enabled = false;
+            listViewAdmin.Enabled = false;
+        }
+
+        public void unblockButtonsAdmin()
+        {
+            group_admin.Enabled = false;
+            btn_editar_admin.Enabled = true;
+            btn_novo_admin.Enabled = true;
+            btn_remover_admin.Enabled = true;
+            listViewAdmin.Enabled = true;
+        }
+
+
+
+        public void limparCamposAdmin()
+        {
+            txt_username_admin.Text = "";
+            txt_password_admin.Text = "";
+        }
+
+
+        //////////////////////////////////////////TERAPEUTA////////////////////////////////////////////////
+
+
+
+        private void btn_novo_terapeuta_Click(object sender, EventArgs e)
+        {
+            isNovoTerapeuta = true;
+            blockButtonsTerapeuta();
+
+
+
+        }
+
+        private void btn_editar_terapeuta_Click(object sender, EventArgs e)
+        {
+            isEditarTerapeuta = true;
+            blockButtonsAdmin();
+        }
+
+        private void btn_remover_terapeuta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_guardar_terapeuta_Click(object sender, EventArgs e)
+        {
+            if (isNovoTerapeuta)
             {
-                OpenFileDialog FD = new OpenFileDialog();
-                FD.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                FD.Title = "Onde está o ficheiro de Excel?";
-
-                FD.Filter = "Xls files (*.xls)|*.xls";
-
-                if (FD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (validarDadosTerapeuta())
                 {
-                    string fileToOpen = FD.FileName;
 
-                    xlsPath = FD.FileName;
-                    txt_excelPath.Text = xlsPath;
-                    txt_excelPath.ReadOnly = true;
+                    ContaWEB conta = new ContaWEB();
+                    conta.username = txt_username_terapeuta.Text;
+                    conta.password = txt_password_terapeuta.Text;
+                    conta.isAdmin = false;
+
+                    TerapeutaWEB t = new TerapeutaWEB();
+                    t.nome = txt_nome_terapeuta.Text;
+                    t.cc = txt_cc_terapeuta.Text;
+                    t.dataNasc = dt_dataNasc_terapeuta.Value.ToString("dd/MM/yyyy");
+                    t.telefone = txt_telefone_terapeuta.Text;
+                    
+
+                    bool res = servico.addTerapeuta(token, t, conta);
+
+                    if (res)
+                    {
+                        MessageBox.Show("Terapeuta adicionado com sucesso!");
+                        isNovoTerapeuta = false;
+                        unblockButtonsTerapeuta();
+                        limparCamposTerapeuta();
+                        preencheTerapeutas();
+                    }
+                    else
+                    {
+
+                        MessageBox.Show("Não foi possível adicionar o terapeuta!");
+                    }
+                }
+            }
+            else if (isEditarTerapeuta)
+            {
+
+            }
+        }
+
+
+        private void listViewTerapeuta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public bool validarDadosTerapeuta()
+        {
+
+            if (txt_username_terapeuta.Text != "" && txt_password_terapeuta.Text != "" && txt_nome_terapeuta.Text != "" && txt_cc_terapeuta.Text != "" && txt_telefone_terapeuta.Text != "")
+            {
+                if (dt_dataNasc_terapeuta.Value <= DateTime.Today)
+                {
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("A data de nascimento não pode ser maior do que o presente dia!",
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation);
 
                 }
-
             }
             else
             {
-                //do stuff if No
+                MessageBox.Show("Preencha todos os campos, pf!",
+             "Aviso",
+             MessageBoxButtons.OK,
+             MessageBoxIcon.Exclamation);
+                return false;
             }
+
+
+            return false;
         }
 
-        private void btn_excelRead_Click_1(object sender, EventArgs e)
+        public void limparCamposTerapeuta()
         {
-            String path = txt_excelPath.Text;
+            txt_username_terapeuta.Text = "";
+            txt_password_terapeuta.Text = "";
+            txt_nome_terapeuta.Text = "";
+            txt_cc_terapeuta.Text = "";
+            txt_telefone_terapeuta.Text = "";
+            dt_dataNasc_terapeuta.Value = DateTime.Today;
 
-            if (txt_excelPath.Text == "")
-            {
-                MessageBox.Show("Deve selecionar um caminho para o ficheiro *.xls a importar");
-            }
-            else
-            {
-
-                Dados d = ExcelHandler.readFromExcelFile(path);
-                DadosWEB dados = dadosToWEB(d);
-                bool a = servico.carregaXml(token, dados);
-
-                MessageBox.Show("Resultado" + a.ToString());
-
-                PATA.Properties.Settings.Default.firstUsage = false;
-                PATA.Properties.Settings.Default.Save();
-            }
         }
 
-        private void btn_remover_admin_Click(object sender, EventArgs e)
+        public void blockButtonsTerapeuta()
         {
-            if (c != null)
+            group_terapeuta.Enabled = true;
+            btn_novo_terapeuta.Enabled = false;
+            btn_editar_terapeuta.Enabled = false;
+            btn_remover_terapeuta.Enabled = false;
+            listViewTerapeuta.Enabled = false;
+
+        }
+
+        public void unblockButtonsTerapeuta()
+        {
+            group_terapeuta.Enabled = false; ;
+            btn_novo_terapeuta.Enabled = true;
+            btn_editar_terapeuta.Enabled = true;
+            btn_remover_terapeuta.Enabled = true;
+            listViewTerapeuta.Enabled = true;
+
+        }
+
+        public void preencheTerapeutas()
+        {
+            listaTerapeutas = servico.getAllTerapeutas(token).ToList();
+            listViewTerapeuta.Items.Clear();
+            foreach (TerapeutaWEB t in listaTerapeutas)
             {
-                listaContas.Remove(c);
-                string msg = servico.removeConta(token, c.id);
-                limparCampos();
-                preencheAdmins();
+                var itemListView = new ListViewItem(t.id.ToString());
+                itemListView.SubItems.Add(t.nome.ToString());
+                listViewTerapeuta.Items.Add(itemListView);
+            }
 
-                MessageBox.Show(msg, "Remover Administrador", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        public void inicializarListViewTerapeuta()
+        {
+            listViewTerapeuta.GridLines = true;
+            listViewTerapeuta.Sorting = SortOrder.Ascending;
+            listViewTerapeuta.View = View.Details;
+            listViewTerapeuta.FullRowSelect = true;
+            listViewTerapeuta.LabelEdit = false;
+            listViewTerapeuta.Columns.Add("ID", 50, HorizontalAlignment.Center);
+            listViewTerapeuta.Columns.Add("Terapeuta", 252, HorizontalAlignment.Center);
+        }
+
+
+        //////////////////////////////////////////PACIENTE////////////////////////////////////////////////
+        private void btn_associarTerapeuta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_guardarPaciente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_novo_paciente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_editar_paciente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_remover_paciente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void preencheAssociarTerapeutas()
+        {
+            listaTerapeutas = servico.getAllTerapeutas(token).ToList();
+            listViewAssociarTerapeuta.Items.Clear();
+            foreach (TerapeutaWEB t in listaTerapeutas)
+            {
+                var itemListView = new ListViewItem(t.id.ToString());
+                itemListView.SubItems.Add(t.nome.ToString());
+                listViewAssociarTerapeuta.Items.Add(itemListView);
+            }
+
+        }
+        public void preenchePacientes()
+        {
+            listaPacientes = servico.getAllPacientes(token).ToList();
+            listViewPaciente.Items.Clear();
+            foreach (PacienteWEB p in listaPacientes)
+            {
+                var itemListView = new ListViewItem(p.id.ToString());
+                itemListView.SubItems.Add(p.nome.ToString());
+                listViewPaciente.Items.Add(itemListView);
             }
         }
+
+
+        public void inicializarListViewPaciente()
+        {
+            listViewPaciente.GridLines = true;
+            listViewPaciente.Sorting = SortOrder.Ascending;
+            listViewPaciente.View = View.Details;
+            listViewPaciente.FullRowSelect = true;
+            listViewPaciente.LabelEdit = false;
+            listViewPaciente.Columns.Add("ID", 50, HorizontalAlignment.Center);
+            listViewPaciente.Columns.Add("Paciente", 252, HorizontalAlignment.Center);
+        }
+
+        public void inicializarListViewAssociarTerapeuta()
+        {
+            listViewAssociarTerapeuta.GridLines = true;
+            listViewAssociarTerapeuta.Sorting = SortOrder.Ascending;
+            listViewAssociarTerapeuta.View = View.Details;
+            listViewAssociarTerapeuta.FullRowSelect = true;
+            listViewAssociarTerapeuta.LabelEdit = false;
+            listViewAssociarTerapeuta.Columns.Add("ID", 50, HorizontalAlignment.Center);
+            listViewAssociarTerapeuta.Columns.Add("Terapeuta a associar:", 252, HorizontalAlignment.Center);
+        }
+
+
+
 
 
 

@@ -31,33 +31,36 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.tab_paciente = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.groupGestaoPacientes = new System.Windows.Forms.GroupBox();
+            this.listViewPaciente = new System.Windows.Forms.ListView();
+            this.btn_novo_paciente = new System.Windows.Forms.Button();
+            this.btn_editar_paciente = new System.Windows.Forms.Button();
+            this.btn_remover_paciente = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.txt_terapeuta_paciente = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.listViewAssociarTerapeuta = new System.Windows.Forms.ListView();
+            this.btn_associarTerapeuta = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rich_morada_paciente = new System.Windows.Forms.RichTextBox();
+            this.btn_guardarPaciente = new System.Windows.Forms.Button();
+            this.sexoPanel = new System.Windows.Forms.Panel();
+            this.radioF_paciente = new System.Windows.Forms.RadioButton();
+            this.radioM_paciente = new System.Windows.Forms.RadioButton();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_telefone_paciente = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_nome_paciente = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_cc_paciente = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dt_dataNasc_paciente = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label28 = new System.Windows.Forms.Label();
             this.tab_terapeuta = new System.Windows.Forms.TabPage();
             this.panel_terapeuta = new System.Windows.Forms.Panel();
+            this.listViewTerapeuta = new System.Windows.Forms.ListView();
             this.group_terapeuta = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -74,11 +77,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dt_dataNasc_terapeuta = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_novo_terapeuta = new System.Windows.Forms.Button();
             this.btn_editar_terapeuta = new System.Windows.Forms.Button();
             this.btn_remover_terapeuta = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBoxTerapeuta = new System.Windows.Forms.ListBox();
             this.tab_admin = new System.Windows.Forms.TabPage();
             this.panel_criar_utilizador = new System.Windows.Forms.Panel();
             this.listViewAdmin = new System.Windows.Forms.ListView();
@@ -96,18 +98,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tab_menu = new System.Windows.Forms.TabPage();
             this.panel_home = new System.Windows.Forms.Panel();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.btn_excelRead = new System.Windows.Forms.Button();
             this.txt_excelPath = new System.Windows.Forms.TextBox();
-            this.btn_gerarListaResultados = new System.Windows.Forms.Button();
-            this.btn_validarDados = new System.Windows.Forms.Button();
             this.btn_procurarExcel = new System.Windows.Forms.Button();
             this.tabControl = new System.Windows.Forms.TabControl();
+            this.btnCancelarTerapeuta = new System.Windows.Forms.Button();
             this.tab_paciente.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupGestaoPacientes.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.sexoPanel.SuspendLayout();
             this.tab_terapeuta.SuspendLayout();
             this.panel_terapeuta.SuspendLayout();
             this.group_terapeuta.SuspendLayout();
@@ -133,135 +135,184 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Controls.Add(this.groupGestaoPacientes);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.label28);
             this.panel1.Location = new System.Drawing.Point(-4, -14);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1137, 632);
             this.panel1.TabIndex = 17;
             // 
-            // dataGridView1
+            // groupGestaoPacientes
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(554, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(301, 372);
-            this.dataGridView1.TabIndex = 30;
+            this.groupGestaoPacientes.Controls.Add(this.listViewPaciente);
+            this.groupGestaoPacientes.Controls.Add(this.btn_novo_paciente);
+            this.groupGestaoPacientes.Controls.Add(this.btn_editar_paciente);
+            this.groupGestaoPacientes.Controls.Add(this.btn_remover_paciente);
+            this.groupGestaoPacientes.Location = new System.Drawing.Point(783, 62);
+            this.groupGestaoPacientes.Name = "groupGestaoPacientes";
+            this.groupGestaoPacientes.Size = new System.Drawing.Size(327, 511);
+            this.groupGestaoPacientes.TabIndex = 31;
+            this.groupGestaoPacientes.TabStop = false;
+            this.groupGestaoPacientes.Text = "Gestão Pacientes";
             // 
-            // button1
+            // listViewPaciente
             // 
-            this.button1.Location = new System.Drawing.Point(870, 440);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Associar Terapeuta";
-            this.button1.UseVisualStyleBackColor = true;
+            this.listViewPaciente.Location = new System.Drawing.Point(19, 36);
+            this.listViewPaciente.Name = "listViewPaciente";
+            this.listViewPaciente.Size = new System.Drawing.Size(302, 428);
+            this.listViewPaciente.TabIndex = 35;
+            this.listViewPaciente.UseCompatibleStateImageBehavior = false;
             // 
-            // label8
+            // btn_novo_paciente
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(867, 42);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(149, 17);
-            this.label8.TabIndex = 28;
-            this.label8.Text = "Terapeutas Existentes";
+            this.btn_novo_paciente.Location = new System.Drawing.Point(19, 470);
+            this.btn_novo_paciente.Name = "btn_novo_paciente";
+            this.btn_novo_paciente.Size = new System.Drawing.Size(104, 23);
+            this.btn_novo_paciente.TabIndex = 31;
+            this.btn_novo_paciente.Text = "Novo";
+            this.btn_novo_paciente.UseVisualStyleBackColor = true;
+            this.btn_novo_paciente.Click += new System.EventHandler(this.btn_novo_paciente_Click);
             // 
-            // button4
+            // btn_editar_paciente
             // 
-            this.button4.Location = new System.Drawing.Point(554, 440);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Novo";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_editar_paciente.Location = new System.Drawing.Point(129, 470);
+            this.btn_editar_paciente.Name = "btn_editar_paciente";
+            this.btn_editar_paciente.Size = new System.Drawing.Size(94, 23);
+            this.btn_editar_paciente.TabIndex = 34;
+            this.btn_editar_paciente.Text = "Editar";
+            this.btn_editar_paciente.UseVisualStyleBackColor = true;
+            this.btn_editar_paciente.Click += new System.EventHandler(this.btn_editar_paciente_Click);
             // 
-            // dataGridView2
+            // btn_remover_paciente
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(870, 62);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(240, 372);
-            this.dataGridView2.TabIndex = 27;
+            this.btn_remover_paciente.Location = new System.Drawing.Point(229, 470);
+            this.btn_remover_paciente.Name = "btn_remover_paciente";
+            this.btn_remover_paciente.Size = new System.Drawing.Size(92, 23);
+            this.btn_remover_paciente.TabIndex = 33;
+            this.btn_remover_paciente.Text = "Remover";
+            this.btn_remover_paciente.UseVisualStyleBackColor = true;
+            this.btn_remover_paciente.Click += new System.EventHandler(this.btn_remover_paciente_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.txt_terapeuta_paciente);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.listViewAssociarTerapeuta);
+            this.groupBox1.Controls.Add(this.btn_associarTerapeuta);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.rich_morada_paciente);
+            this.groupBox1.Controls.Add(this.btn_guardarPaciente);
+            this.groupBox1.Controls.Add(this.sexoPanel);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_telefone_paciente);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txt_nome_paciente);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txt_cc_paciente);
             this.groupBox1.Controls.Add(this.label25);
             this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dt_dataNasc_paciente);
             this.groupBox1.Location = new System.Drawing.Point(28, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 372);
+            this.groupBox1.Size = new System.Drawing.Size(749, 511);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Paciente";
             // 
-            // richTextBox1
+            // txt_terapeuta_paciente
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(88, 160);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(269, 64);
-            this.richTextBox1.TabIndex = 16;
-            this.richTextBox1.Text = "";
+            this.txt_terapeuta_paciente.Location = new System.Drawing.Point(102, 353);
+            this.txt_terapeuta_paciente.Name = "txt_terapeuta_paciente";
+            this.txt_terapeuta_paciente.ReadOnly = true;
+            this.txt_terapeuta_paciente.Size = new System.Drawing.Size(289, 22);
+            this.txt_terapeuta_paciente.TabIndex = 39;
             // 
-            // button2
+            // label17
             // 
-            this.button2.Location = new System.Drawing.Point(439, 334);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(21, 353);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 17);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Terapeuta";
             // 
-            // panel2
+            // listViewAssociarTerapeuta
             // 
-            this.panel2.Controls.Add(this.radioButton1);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(71, 288);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(118, 37);
-            this.panel2.TabIndex = 15;
+            this.listViewAssociarTerapeuta.Location = new System.Drawing.Point(418, 36);
+            this.listViewAssociarTerapeuta.Name = "listViewAssociarTerapeuta";
+            this.listViewAssociarTerapeuta.Size = new System.Drawing.Size(302, 370);
+            this.listViewAssociarTerapeuta.TabIndex = 37;
+            this.listViewAssociarTerapeuta.UseCompatibleStateImageBehavior = false;
             // 
-            // radioButton1
+            // btn_associarTerapeuta
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(59, 8);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(37, 21);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "F";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btn_associarTerapeuta.Location = new System.Drawing.Point(418, 412);
+            this.btn_associarTerapeuta.Name = "btn_associarTerapeuta";
+            this.btn_associarTerapeuta.Size = new System.Drawing.Size(302, 23);
+            this.btn_associarTerapeuta.TabIndex = 36;
+            this.btn_associarTerapeuta.Text = "Associar Terapeuta";
+            this.btn_associarTerapeuta.UseVisualStyleBackColor = true;
+            this.btn_associarTerapeuta.Click += new System.EventHandler(this.btn_associarTerapeuta_Click);
             // 
-            // radioButton2
+            // label8
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(13, 8);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(40, 21);
-            this.radioButton2.TabIndex = 12;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "M";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(415, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 17);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Terapeutas Existentes";
+            // 
+            // rich_morada_paciente
+            // 
+            this.rich_morada_paciente.Location = new System.Drawing.Point(88, 160);
+            this.rich_morada_paciente.Name = "rich_morada_paciente";
+            this.rich_morada_paciente.Size = new System.Drawing.Size(303, 64);
+            this.rich_morada_paciente.TabIndex = 16;
+            this.rich_morada_paciente.Text = "";
+            // 
+            // btn_guardarPaciente
+            // 
+            this.btn_guardarPaciente.Location = new System.Drawing.Point(632, 470);
+            this.btn_guardarPaciente.Name = "btn_guardarPaciente";
+            this.btn_guardarPaciente.Size = new System.Drawing.Size(111, 35);
+            this.btn_guardarPaciente.TabIndex = 6;
+            this.btn_guardarPaciente.Text = "Guardar";
+            this.btn_guardarPaciente.UseVisualStyleBackColor = true;
+            this.btn_guardarPaciente.Click += new System.EventHandler(this.btn_guardarPaciente_Click);
+            // 
+            // sexoPanel
+            // 
+            this.sexoPanel.Controls.Add(this.radioF_paciente);
+            this.sexoPanel.Controls.Add(this.radioM_paciente);
+            this.sexoPanel.Location = new System.Drawing.Point(71, 288);
+            this.sexoPanel.Name = "sexoPanel";
+            this.sexoPanel.Size = new System.Drawing.Size(118, 37);
+            this.sexoPanel.TabIndex = 15;
+            // 
+            // radioF_paciente
+            // 
+            this.radioF_paciente.AutoSize = true;
+            this.radioF_paciente.Location = new System.Drawing.Point(59, 8);
+            this.radioF_paciente.Name = "radioF_paciente";
+            this.radioF_paciente.Size = new System.Drawing.Size(37, 21);
+            this.radioF_paciente.TabIndex = 13;
+            this.radioF_paciente.TabStop = true;
+            this.radioF_paciente.Text = "F";
+            this.radioF_paciente.UseVisualStyleBackColor = true;
+            // 
+            // radioM_paciente
+            // 
+            this.radioM_paciente.AutoSize = true;
+            this.radioM_paciente.Location = new System.Drawing.Point(13, 8);
+            this.radioM_paciente.Name = "radioM_paciente";
+            this.radioM_paciente.Size = new System.Drawing.Size(40, 21);
+            this.radioM_paciente.TabIndex = 12;
+            this.radioM_paciente.TabStop = true;
+            this.radioM_paciente.Text = "M";
+            this.radioM_paciente.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -281,12 +332,12 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Morada";
             // 
-            // textBox1
+            // txt_telefone_paciente
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 117);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 22);
-            this.textBox1.TabIndex = 9;
+            this.txt_telefone_paciente.Location = new System.Drawing.Point(88, 117);
+            this.txt_telefone_paciente.Name = "txt_telefone_paciente";
+            this.txt_telefone_paciente.Size = new System.Drawing.Size(303, 22);
+            this.txt_telefone_paciente.TabIndex = 9;
             // 
             // label23
             // 
@@ -297,12 +348,12 @@
             this.label23.TabIndex = 8;
             this.label23.Text = "Data de Nascimento";
             // 
-            // textBox2
+            // txt_nome_paciente
             // 
-            this.textBox2.Location = new System.Drawing.Point(88, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(269, 22);
-            this.textBox2.TabIndex = 0;
+            this.txt_nome_paciente.Location = new System.Drawing.Point(88, 36);
+            this.txt_nome_paciente.Name = "txt_nome_paciente";
+            this.txt_nome_paciente.Size = new System.Drawing.Size(303, 22);
+            this.txt_nome_paciente.TabIndex = 0;
             // 
             // label24
             // 
@@ -313,12 +364,12 @@
             this.label24.TabIndex = 7;
             this.label24.Text = "Telefone";
             // 
-            // textBox3
+            // txt_cc_paciente
             // 
-            this.textBox3.Location = new System.Drawing.Point(88, 77);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(269, 22);
-            this.textBox3.TabIndex = 1;
+            this.txt_cc_paciente.Location = new System.Drawing.Point(88, 77);
+            this.txt_cc_paciente.Name = "txt_cc_paciente";
+            this.txt_cc_paciente.Size = new System.Drawing.Size(303, 22);
+            this.txt_cc_paciente.TabIndex = 1;
             // 
             // label25
             // 
@@ -338,12 +389,12 @@
             this.label26.TabIndex = 5;
             this.label26.Text = "Nome";
             // 
-            // dateTimePicker1
+            // dt_dataNasc_paciente
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(159, 247);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 4;
+            this.dt_dataNasc_paciente.Location = new System.Drawing.Point(159, 247);
+            this.dt_dataNasc_paciente.Name = "dt_dataNasc_paciente";
+            this.dt_dataNasc_paciente.Size = new System.Drawing.Size(232, 22);
+            this.dt_dataNasc_paciente.TabIndex = 4;
             // 
             // label27
             // 
@@ -354,33 +405,6 @@
             this.label27.Size = new System.Drawing.Size(120, 31);
             this.label27.TabIndex = 20;
             this.label27.Text = "Paciente";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(664, 440);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(94, 23);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(764, 440);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(92, 23);
-            this.button6.TabIndex = 24;
-            this.button6.Text = "Remover";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(551, 42);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(138, 17);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "Pacientes Existentes";
             // 
             // tab_terapeuta
             // 
@@ -395,21 +419,31 @@
             // 
             // panel_terapeuta
             // 
+            this.panel_terapeuta.Controls.Add(this.listViewTerapeuta);
             this.panel_terapeuta.Controls.Add(this.group_terapeuta);
             this.panel_terapeuta.Controls.Add(this.label5);
-            this.panel_terapeuta.Controls.Add(this.button3);
+            this.panel_terapeuta.Controls.Add(this.btn_novo_terapeuta);
             this.panel_terapeuta.Controls.Add(this.btn_editar_terapeuta);
             this.panel_terapeuta.Controls.Add(this.btn_remover_terapeuta);
             this.panel_terapeuta.Controls.Add(this.label6);
-            this.panel_terapeuta.Controls.Add(this.listBoxTerapeuta);
             this.panel_terapeuta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_terapeuta.Location = new System.Drawing.Point(3, 3);
             this.panel_terapeuta.Name = "panel_terapeuta";
             this.panel_terapeuta.Size = new System.Drawing.Size(1123, 630);
             this.panel_terapeuta.TabIndex = 17;
             // 
+            // listViewTerapeuta
+            // 
+            this.listViewTerapeuta.Location = new System.Drawing.Point(553, 70);
+            this.listViewTerapeuta.Name = "listViewTerapeuta";
+            this.listViewTerapeuta.Size = new System.Drawing.Size(302, 362);
+            this.listViewTerapeuta.TabIndex = 20;
+            this.listViewTerapeuta.UseCompatibleStateImageBehavior = false;
+            this.listViewTerapeuta.SelectedIndexChanged += new System.EventHandler(this.listViewTerapeuta_SelectedIndexChanged);
+            // 
             // group_terapeuta
             // 
+            this.group_terapeuta.Controls.Add(this.btnCancelarTerapeuta);
             this.group_terapeuta.Controls.Add(this.groupBox2);
             this.group_terapeuta.Controls.Add(this.btn_guardar_terapeuta);
             this.group_terapeuta.Controls.Add(this.txt_telefone_terapeuta);
@@ -480,6 +514,7 @@
             this.btn_guardar_terapeuta.TabIndex = 6;
             this.btn_guardar_terapeuta.Text = "Guardar";
             this.btn_guardar_terapeuta.UseVisualStyleBackColor = true;
+            this.btn_guardar_terapeuta.Click += new System.EventHandler(this.btn_guardar_terapeuta_Click);
             // 
             // txt_telefone_terapeuta
             // 
@@ -555,14 +590,15 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Terapeuta";
             // 
-            // button3
+            // btn_novo_terapeuta
             // 
-            this.button3.Location = new System.Drawing.Point(553, 438);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 23);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "Novo";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_novo_terapeuta.Location = new System.Drawing.Point(553, 438);
+            this.btn_novo_terapeuta.Name = "btn_novo_terapeuta";
+            this.btn_novo_terapeuta.Size = new System.Drawing.Size(101, 23);
+            this.btn_novo_terapeuta.TabIndex = 14;
+            this.btn_novo_terapeuta.Text = "Novo";
+            this.btn_novo_terapeuta.UseVisualStyleBackColor = true;
+            this.btn_novo_terapeuta.Click += new System.EventHandler(this.btn_novo_terapeuta_Click);
             // 
             // btn_editar_terapeuta
             // 
@@ -572,6 +608,7 @@
             this.btn_editar_terapeuta.TabIndex = 19;
             this.btn_editar_terapeuta.Text = "Editar";
             this.btn_editar_terapeuta.UseVisualStyleBackColor = true;
+            this.btn_editar_terapeuta.Click += new System.EventHandler(this.btn_editar_terapeuta_Click);
             // 
             // btn_remover_terapeuta
             // 
@@ -581,6 +618,7 @@
             this.btn_remover_terapeuta.TabIndex = 18;
             this.btn_remover_terapeuta.Text = "Remover";
             this.btn_remover_terapeuta.UseVisualStyleBackColor = true;
+            this.btn_remover_terapeuta.Click += new System.EventHandler(this.btn_remover_terapeuta_Click);
             // 
             // label6
             // 
@@ -590,15 +628,6 @@
             this.label6.Size = new System.Drawing.Size(149, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Terapeutas Existentes";
-            // 
-            // listBoxTerapeuta
-            // 
-            this.listBoxTerapeuta.FormattingEnabled = true;
-            this.listBoxTerapeuta.ItemHeight = 16;
-            this.listBoxTerapeuta.Location = new System.Drawing.Point(553, 60);
-            this.listBoxTerapeuta.Name = "listBoxTerapeuta";
-            this.listBoxTerapeuta.Size = new System.Drawing.Size(302, 372);
-            this.listBoxTerapeuta.TabIndex = 17;
             // 
             // tab_admin
             // 
@@ -764,10 +793,10 @@
             // 
             // panel_home
             // 
+            this.panel_home.Controls.Add(this.btn_logout);
+            this.panel_home.Controls.Add(this.label16);
             this.panel_home.Controls.Add(this.btn_excelRead);
             this.panel_home.Controls.Add(this.txt_excelPath);
-            this.panel_home.Controls.Add(this.btn_gerarListaResultados);
-            this.panel_home.Controls.Add(this.btn_validarDados);
             this.panel_home.Controls.Add(this.btn_procurarExcel);
             this.panel_home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_home.Location = new System.Drawing.Point(3, 3);
@@ -775,9 +804,30 @@
             this.panel_home.Size = new System.Drawing.Size(1123, 630);
             this.panel_home.TabIndex = 16;
             // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(998, 50);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(90, 36);
+            this.btn_logout.TabIndex = 19;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(214, 50);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(698, 31);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "PATA – Plataforma Auxiliar ao Terapeuta de Acupunctura";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // btn_excelRead
             // 
-            this.btn_excelRead.Location = new System.Drawing.Point(466, 141);
+            this.btn_excelRead.Location = new System.Drawing.Point(466, 299);
             this.btn_excelRead.Margin = new System.Windows.Forms.Padding(2);
             this.btn_excelRead.Name = "btn_excelRead";
             this.btn_excelRead.Size = new System.Drawing.Size(211, 56);
@@ -788,35 +838,15 @@
             // 
             // txt_excelPath
             // 
-            this.txt_excelPath.Location = new System.Drawing.Point(150, 102);
+            this.txt_excelPath.Location = new System.Drawing.Point(150, 260);
             this.txt_excelPath.Margin = new System.Windows.Forms.Padding(2);
             this.txt_excelPath.Name = "txt_excelPath";
             this.txt_excelPath.Size = new System.Drawing.Size(858, 22);
             this.txt_excelPath.TabIndex = 16;
             // 
-            // btn_gerarListaResultados
-            // 
-            this.btn_gerarListaResultados.Location = new System.Drawing.Point(466, 423);
-            this.btn_gerarListaResultados.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_gerarListaResultados.Name = "btn_gerarListaResultados";
-            this.btn_gerarListaResultados.Size = new System.Drawing.Size(211, 56);
-            this.btn_gerarListaResultados.TabIndex = 15;
-            this.btn_gerarListaResultados.Text = "Gerar Lista Resultados";
-            this.btn_gerarListaResultados.UseVisualStyleBackColor = true;
-            // 
-            // btn_validarDados
-            // 
-            this.btn_validarDados.Location = new System.Drawing.Point(466, 286);
-            this.btn_validarDados.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_validarDados.Name = "btn_validarDados";
-            this.btn_validarDados.Size = new System.Drawing.Size(211, 56);
-            this.btn_validarDados.TabIndex = 14;
-            this.btn_validarDados.Text = "Validar Dados";
-            this.btn_validarDados.UseVisualStyleBackColor = true;
-            // 
             // btn_procurarExcel
             // 
-            this.btn_procurarExcel.Location = new System.Drawing.Point(466, 29);
+            this.btn_procurarExcel.Location = new System.Drawing.Point(466, 187);
             this.btn_procurarExcel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_procurarExcel.Name = "btn_procurarExcel";
             this.btn_procurarExcel.Size = new System.Drawing.Size(211, 56);
@@ -838,6 +868,15 @@
             this.tabControl.Size = new System.Drawing.Size(1137, 665);
             this.tabControl.TabIndex = 20;
             // 
+            // btnCancelarTerapeuta
+            // 
+            this.btnCancelarTerapeuta.Location = new System.Drawing.Point(280, 372);
+            this.btnCancelarTerapeuta.Name = "btnCancelarTerapeuta";
+            this.btnCancelarTerapeuta.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarTerapeuta.TabIndex = 16;
+            this.btnCancelarTerapeuta.Text = "Cancelar";
+            this.btnCancelarTerapeuta.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -851,12 +890,11 @@
             this.tab_paciente.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupGestaoPacientes.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.sexoPanel.ResumeLayout(false);
+            this.sexoPanel.PerformLayout();
             this.tab_terapeuta.ResumeLayout(false);
             this.panel_terapeuta.ResumeLayout(false);
             this.panel_terapeuta.PerformLayout();
@@ -881,36 +919,28 @@
 
         private System.Windows.Forms.TabPage tab_paciente;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.RichTextBox rich_morada_paciente;
+        private System.Windows.Forms.Button btn_guardarPaciente;
+        private System.Windows.Forms.Panel sexoPanel;
+        private System.Windows.Forms.RadioButton radioF_paciente;
+        private System.Windows.Forms.RadioButton radioM_paciente;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_telefone_paciente;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_nome_paciente;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_cc_paciente;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dt_dataNasc_paciente;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TabPage tab_terapeuta;
         private System.Windows.Forms.Panel panel_terapeuta;
         private System.Windows.Forms.GroupBox group_terapeuta;
         private System.Windows.Forms.Button btn_guardar_terapeuta;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_novo_terapeuta;
         private System.Windows.Forms.TextBox txt_telefone_terapeuta;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_nome_terapeuta;
@@ -918,12 +948,10 @@
         private System.Windows.Forms.TextBox txt_cc_terapeuta;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dt_dataNasc_terapeuta;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btn_editar_terapeuta;
         private System.Windows.Forms.Button btn_remover_terapeuta;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBoxTerapeuta;
         private System.Windows.Forms.TabPage tab_admin;
         private System.Windows.Forms.Panel panel_criar_utilizador;
         private System.Windows.Forms.Label label4;
@@ -941,8 +969,6 @@
         private System.Windows.Forms.Panel panel_home;
         private System.Windows.Forms.Button btn_excelRead;
         private System.Windows.Forms.TextBox txt_excelPath;
-        private System.Windows.Forms.Button btn_gerarListaResultados;
-        private System.Windows.Forms.Button btn_validarDados;
         private System.Windows.Forms.Button btn_procurarExcel;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -952,6 +978,21 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btn_cancelar_admin;
         private System.Windows.Forms.ListView listViewAdmin;
+        private System.Windows.Forms.ListView listViewTerapeuta;
+        public System.Windows.Forms.DateTimePicker dt_dataNasc_terapeuta;
+        private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ListView listViewAssociarTerapeuta;
+        private System.Windows.Forms.Button btn_associarTerapeuta;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_terapeuta_paciente;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupGestaoPacientes;
+        private System.Windows.Forms.ListView listViewPaciente;
+        private System.Windows.Forms.Button btn_novo_paciente;
+        private System.Windows.Forms.Button btn_editar_paciente;
+        private System.Windows.Forms.Button btn_remover_paciente;
+        private System.Windows.Forms.Button btnCancelarTerapeuta;
 
     }
 }
