@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFPata" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFPata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfTokenWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TokenWeb" nillable="true" type="tns:TokenWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTokenWeb" nillable="true" type="tns:ArrayOfTokenWeb" />
+  <xs:complexType name="TokenWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="conta" nillable="true" type="tns:ContaWEB" />
+      <xs:element minOccurs="0" name="dataExpirar" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="dataLogin" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="horas" type="xs:int" />
+      <xs:element minOccurs="0" name="isTimedOutExpired" type="xs:boolean" />
+      <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TokenWeb" nillable="true" type="tns:TokenWeb" />
+  <xs:complexType name="ContaWEB">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContaWEB" nillable="true" type="tns:ContaWEB" />
   <xs:complexType name="DadosWEB">
     <xs:sequence>
       <xs:element minOccurs="0" name="listaDiagnosticos" nillable="true" type="tns:ArrayOfDiagnosticoWEB" />
@@ -59,15 +85,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfContaWEB" nillable="true" type="tns:ArrayOfContaWEB" />
-  <xs:complexType name="ContaWEB">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="id" type="xs:int" />
-      <xs:element minOccurs="0" name="isAdmin" type="xs:boolean" />
-      <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ContaWEB" nillable="true" type="tns:ContaWEB" />
   <xs:complexType name="ArrayOfTerapeutaWEB">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="TerapeutaWEB" nillable="true" type="tns:TerapeutaWEB" />

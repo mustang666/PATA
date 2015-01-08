@@ -39,11 +39,11 @@ namespace PATA
                         {
                             PATA.Properties.Settings.Default.token = token;
                             PATA.Properties.Settings.Default.Save();
+                            txt_password.Text = "";
+                            txt_username.Text = "";
                             Menu fMenu = new Menu(this);
 
                             fMenu.Show();
-                            txt_password.Text = "";
-                            txt_username.Text = "";
                             this.Hide();
                         }
                         else {
@@ -56,10 +56,10 @@ namespace PATA
 
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
 
-                    MessageBox.Show("Ocorreu um erro ao efetuar o login");
+                    MessageBox.Show("Ocorreu um erro ao efetuar o login\n"+ex.Message.ToString());
                 }
 
               

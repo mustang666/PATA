@@ -15,6 +15,224 @@ namespace PATA.ServicePATA {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TokenWeb", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
+    [System.SerializableAttribute()]
+    public partial class TokenWeb : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private PATA.ServicePATA.ContaWEB contaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataExpirarField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime dataLoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int horasField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool isTimedOutExpiredField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string valueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public PATA.ServicePATA.ContaWEB conta {
+            get {
+                return this.contaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.contaField, value) != true)) {
+                    this.contaField = value;
+                    this.RaisePropertyChanged("conta");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataExpirar {
+            get {
+                return this.dataExpirarField;
+            }
+            set {
+                if ((this.dataExpirarField.Equals(value) != true)) {
+                    this.dataExpirarField = value;
+                    this.RaisePropertyChanged("dataExpirar");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime dataLogin {
+            get {
+                return this.dataLoginField;
+            }
+            set {
+                if ((this.dataLoginField.Equals(value) != true)) {
+                    this.dataLoginField = value;
+                    this.RaisePropertyChanged("dataLogin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int horas {
+            get {
+                return this.horasField;
+            }
+            set {
+                if ((this.horasField.Equals(value) != true)) {
+                    this.horasField = value;
+                    this.RaisePropertyChanged("horas");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool isTimedOutExpired {
+            get {
+                return this.isTimedOutExpiredField;
+            }
+            set {
+                if ((this.isTimedOutExpiredField.Equals(value) != true)) {
+                    this.isTimedOutExpiredField = value;
+                    this.RaisePropertyChanged("isTimedOutExpired");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string value {
+            get {
+                return this.valueField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.valueField, value) != true)) {
+                    this.valueField = value;
+                    this.RaisePropertyChanged("value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContaWEB", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
+    [System.SerializableAttribute()]
+    public partial class ContaWEB : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool isAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string passwordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string usernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool isAdmin {
+            get {
+                return this.isAdminField;
+            }
+            set {
+                if ((this.isAdminField.Equals(value) != true)) {
+                    this.isAdminField = value;
+                    this.RaisePropertyChanged("isAdmin");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
+                    this.passwordField = value;
+                    this.RaisePropertyChanged("password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
+                    this.usernameField = value;
+                    this.RaisePropertyChanged("username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="DadosWEB", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
     [System.SerializableAttribute()]
     public partial class DadosWEB : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -371,99 +589,6 @@ namespace PATA.ServicePATA {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ContaWEB", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
-    [System.SerializableAttribute()]
-    public partial class ContaWEB : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool isAdminField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string usernameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool isAdmin {
-            get {
-                return this.isAdminField;
-            }
-            set {
-                if ((this.isAdminField.Equals(value) != true)) {
-                    this.isAdminField = value;
-                    this.RaisePropertyChanged("isAdmin");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string username {
-            get {
-                return this.usernameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.usernameField, value) != true)) {
-                    this.usernameField = value;
-                    this.RaisePropertyChanged("username");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TerapeutaWEB", Namespace="http://schemas.datacontract.org/2004/07/WCFPata")]
     [System.SerializableAttribute()]
     public partial class TerapeutaWEB : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -777,6 +902,12 @@ namespace PATA.ServicePATA {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServicePATA.IService1")]
     public interface IService1 {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTokens", ReplyAction="http://tempuri.org/IService1/getTokensResponse")]
+        PATA.ServicePATA.TokenWeb[] getTokens();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getTokens", ReplyAction="http://tempuri.org/IService1/getTokensResponse")]
+        System.Threading.Tasks.Task<PATA.ServicePATA.TokenWeb[]> getTokensAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/logIn", ReplyAction="http://tempuri.org/IService1/logInResponse")]
         string logIn(string username, string password);
         
@@ -825,6 +956,12 @@ namespace PATA.ServicePATA {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllContas", ReplyAction="http://tempuri.org/IService1/getAllContasResponse")]
         System.Threading.Tasks.Task<PATA.ServicePATA.ContaWEB[]> getAllContasAsync(string token);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllContasTerapeutas", ReplyAction="http://tempuri.org/IService1/getAllContasTerapeutasResponse")]
+        PATA.ServicePATA.ContaWEB[] getAllContasTerapeutas(string token);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllContasTerapeutas", ReplyAction="http://tempuri.org/IService1/getAllContasTerapeutasResponse")]
+        System.Threading.Tasks.Task<PATA.ServicePATA.ContaWEB[]> getAllContasTerapeutasAsync(string token);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getAllTerapeutas", ReplyAction="http://tempuri.org/IService1/getAllTerapeutasResponse")]
         PATA.ServicePATA.TerapeutaWEB[] getAllTerapeutas(string token);
         
@@ -861,11 +998,23 @@ namespace PATA.ServicePATA {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addPaciente", ReplyAction="http://tempuri.org/IService1/addPacienteResponse")]
         System.Threading.Tasks.Task<bool> addPacienteAsync(string token, PATA.ServicePATA.PacienteWEB paciente);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addPacienteClienteAdmin", ReplyAction="http://tempuri.org/IService1/addPacienteClienteAdminResponse")]
+        bool addPacienteClienteAdmin(string token, PATA.ServicePATA.PacienteWEB paciente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addPacienteClienteAdmin", ReplyAction="http://tempuri.org/IService1/addPacienteClienteAdminResponse")]
+        System.Threading.Tasks.Task<bool> addPacienteClienteAdminAsync(string token, PATA.ServicePATA.PacienteWEB paciente);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editPaciente", ReplyAction="http://tempuri.org/IService1/editPacienteResponse")]
         bool editPaciente(string token, PATA.ServicePATA.PacienteWEB paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editPaciente", ReplyAction="http://tempuri.org/IService1/editPacienteResponse")]
         System.Threading.Tasks.Task<bool> editPacienteAsync(string token, PATA.ServicePATA.PacienteWEB paciente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editPacienteClienteAdmin", ReplyAction="http://tempuri.org/IService1/editPacienteClienteAdminResponse")]
+        bool editPacienteClienteAdmin(string token, PATA.ServicePATA.PacienteWEB paciente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editPacienteClienteAdmin", ReplyAction="http://tempuri.org/IService1/editPacienteClienteAdminResponse")]
+        System.Threading.Tasks.Task<bool> editPacienteClienteAdminAsync(string token, PATA.ServicePATA.PacienteWEB paciente);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editTerapeuta", ReplyAction="http://tempuri.org/IService1/editTerapeutaResponse")]
         bool editTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta);
@@ -878,6 +1027,12 @@ namespace PATA.ServicePATA {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/editConta", ReplyAction="http://tempuri.org/IService1/editContaResponse")]
         System.Threading.Tasks.Task<bool> editContaAsync(string token, PATA.ServicePATA.ContaWEB conta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removeTerapeuta", ReplyAction="http://tempuri.org/IService1/removeTerapeutaResponse")]
+        bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removeTerapeuta", ReplyAction="http://tempuri.org/IService1/removeTerapeutaResponse")]
+        System.Threading.Tasks.Task<bool> removeTerapeutaAsync(string token, int idContaTerapeuta, int idTerapeuta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/addConta", ReplyAction="http://tempuri.org/IService1/addContaResponse")]
         bool addConta(string token, PATA.ServicePATA.ContaWEB conta);
@@ -908,6 +1063,12 @@ namespace PATA.ServicePATA {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removeConta", ReplyAction="http://tempuri.org/IService1/removeContaResponse")]
         System.Threading.Tasks.Task<string> removeContaAsync(string token, int idConta);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removePaciente", ReplyAction="http://tempuri.org/IService1/removePacienteResponse")]
+        bool removePaciente(string token, int idPaciente);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/removePaciente", ReplyAction="http://tempuri.org/IService1/removePacienteResponse")]
+        System.Threading.Tasks.Task<bool> removePacienteAsync(string token, int idPaciente);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -935,6 +1096,14 @@ namespace PATA.ServicePATA {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public PATA.ServicePATA.TokenWeb[] getTokens() {
+            return base.Channel.getTokens();
+        }
+        
+        public System.Threading.Tasks.Task<PATA.ServicePATA.TokenWeb[]> getTokensAsync() {
+            return base.Channel.getTokensAsync();
         }
         
         public string logIn(string username, string password) {
@@ -1001,6 +1170,14 @@ namespace PATA.ServicePATA {
             return base.Channel.getAllContasAsync(token);
         }
         
+        public PATA.ServicePATA.ContaWEB[] getAllContasTerapeutas(string token) {
+            return base.Channel.getAllContasTerapeutas(token);
+        }
+        
+        public System.Threading.Tasks.Task<PATA.ServicePATA.ContaWEB[]> getAllContasTerapeutasAsync(string token) {
+            return base.Channel.getAllContasTerapeutasAsync(token);
+        }
+        
         public PATA.ServicePATA.TerapeutaWEB[] getAllTerapeutas(string token) {
             return base.Channel.getAllTerapeutas(token);
         }
@@ -1049,12 +1226,28 @@ namespace PATA.ServicePATA {
             return base.Channel.addPacienteAsync(token, paciente);
         }
         
+        public bool addPacienteClienteAdmin(string token, PATA.ServicePATA.PacienteWEB paciente) {
+            return base.Channel.addPacienteClienteAdmin(token, paciente);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addPacienteClienteAdminAsync(string token, PATA.ServicePATA.PacienteWEB paciente) {
+            return base.Channel.addPacienteClienteAdminAsync(token, paciente);
+        }
+        
         public bool editPaciente(string token, PATA.ServicePATA.PacienteWEB paciente) {
             return base.Channel.editPaciente(token, paciente);
         }
         
         public System.Threading.Tasks.Task<bool> editPacienteAsync(string token, PATA.ServicePATA.PacienteWEB paciente) {
             return base.Channel.editPacienteAsync(token, paciente);
+        }
+        
+        public bool editPacienteClienteAdmin(string token, PATA.ServicePATA.PacienteWEB paciente) {
+            return base.Channel.editPacienteClienteAdmin(token, paciente);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editPacienteClienteAdminAsync(string token, PATA.ServicePATA.PacienteWEB paciente) {
+            return base.Channel.editPacienteClienteAdminAsync(token, paciente);
         }
         
         public bool editTerapeuta(string token, PATA.ServicePATA.TerapeutaWEB terapeuta, PATA.ServicePATA.ContaWEB conta) {
@@ -1071,6 +1264,14 @@ namespace PATA.ServicePATA {
         
         public System.Threading.Tasks.Task<bool> editContaAsync(string token, PATA.ServicePATA.ContaWEB conta) {
             return base.Channel.editContaAsync(token, conta);
+        }
+        
+        public bool removeTerapeuta(string token, int idContaTerapeuta, int idTerapeuta) {
+            return base.Channel.removeTerapeuta(token, idContaTerapeuta, idTerapeuta);
+        }
+        
+        public System.Threading.Tasks.Task<bool> removeTerapeutaAsync(string token, int idContaTerapeuta, int idTerapeuta) {
+            return base.Channel.removeTerapeutaAsync(token, idContaTerapeuta, idTerapeuta);
         }
         
         public bool addConta(string token, PATA.ServicePATA.ContaWEB conta) {
@@ -1111,6 +1312,14 @@ namespace PATA.ServicePATA {
         
         public System.Threading.Tasks.Task<string> removeContaAsync(string token, int idConta) {
             return base.Channel.removeContaAsync(token, idConta);
+        }
+        
+        public bool removePaciente(string token, int idPaciente) {
+            return base.Channel.removePaciente(token, idPaciente);
+        }
+        
+        public System.Threading.Tasks.Task<bool> removePacienteAsync(string token, int idPaciente) {
+            return base.Channel.removePacienteAsync(token, idPaciente);
         }
     }
 }

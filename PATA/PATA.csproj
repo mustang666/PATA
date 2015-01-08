@@ -139,6 +139,9 @@
     <None Include="Service References\ServicePATA\PATA.ServicePATA.TerapeutaWEB.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\ServicePATA\PATA.ServicePATA.TokenWeb.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServicePATA\service1.wsdl" />
     <None Include="Service References\ServicePATA\service1.xsd">
       <SubType>Designer</SubType>
